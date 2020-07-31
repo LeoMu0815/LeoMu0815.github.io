@@ -101,32 +101,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客Typora图片处理</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>经以下步骤，可在使用Typora编写时能实时看到图片，且本地使用 <code>hexo server</code>浏览时也能看到图片。</p>
-<blockquote>
-<p>无需使用图床作为图片的保存方式，且在浏览时无需使用网络。</p>
-</blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>通过 <code>Ctrl + ，</code>或菜单进入Typora的偏好设置，点击“图像”设置</p>
-</li>
-<li><p>参考图片设置为“复制到制定路径”与路径<code>./${filename}/</code>，即拷贝到与Markdown文件同名文件夹下。</p>
-<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/image-20200710184706974.png" class="" title="image-20200710184706974">
-</li>
-<li><p>修改Hexo的全局配置文件<code>_config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 <code>hexo new &quot;博客名&quot;</code>创建一篇博客</p>
-</li>
-<li><p>通过Git命令 <code>npm install hexo-image-link --save</code>安装插件</p>
-</li>
-<li><p>使用 <code>hexo s</code> 或 <code>hexo server -debug</code>启动服务预览效果</p>
-</li>
-</ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.cnblogs.com/cocowool/p/hexo-image-link.html" target="_blank" rel="noopener">Hexo博客写作与图片处理的经验</a></li>
-</ul>
-]]></content>
+    <title>testblog</title>
+    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/</url>
+    <content><![CDATA[<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/39469-20200316225119792-1402012599.png" class="" title="39469-20200316225119792-1402012599">]]></content>
   </entry>
   <entry>
     <title>Hexo更换主题</title>
@@ -168,6 +145,34 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Typora图片处理</title>
+    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>经以下步骤，可在使用Typora编写时能实时看到图片，且本地使用 <code>hexo server</code>浏览时也能看到图片。</p>
+<blockquote>
+<p>无需使用图床作为图片的保存方式，且在浏览时无需使用网络。</p>
+</blockquote>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>通过 <code>Ctrl + ，</code>或菜单进入Typora的偏好设置，点击“图像”设置</p>
+</li>
+<li><p>参考图片设置为“复制到制定路径”与路径<code>./${filename}/</code>，即拷贝到与Markdown文件同名文件夹下。</p>
+<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/image-20200710184706974.png" class="" title="image-20200710184706974">
+</li>
+<li><p>修改Hexo的全局配置文件<code>_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>hexo new &quot;博客名&quot;</code>创建一篇博客</p>
+</li>
+<li><p>通过Git命令 <code>npm install hexo-image-link --save</code>安装插件</p>
+</li>
+<li><p>使用 <code>hexo s</code> 或 <code>hexo server -debug</code>启动服务预览效果</p>
+</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.cnblogs.com/cocowool/p/hexo-image-link.html" target="_blank" rel="noopener">Hexo博客写作与图片处理的经验</a></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Typora使用指南</title>
@@ -285,10 +290,5 @@
 <hr>
 <p>[^ 1 ]: [ + ^ + 空 + 数字 + 空  + ]</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>testblog</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/</url>
-    <content><![CDATA[<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/39469-20200316225119792-1402012599.png" class="" title="39469-20200316225119792-1402012599">]]></content>
   </entry>
 </search>
