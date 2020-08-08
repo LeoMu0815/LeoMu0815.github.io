@@ -1,294 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/07/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo博客本地搭建</title>
-    <url>/2020/07/29/Hexo/Hexo%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>  要想快速搭建一个博客，可以使用现有的博客框架。<br>  在这里我们使用的是<strong>hexo</strong>，一个基于<strong>Nodejs</strong>、快速简洁高效的博客框架。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网传送门</a>  </li>
-</ul>
-<p>选择LTS下载并安装。  </p>
-<img src= "/img/loading.gif" data-src="/2020/07/29/Hexo/Hexo%E5%8D%9A%E5%AE%A2%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/6n4l.png" class="" title="LTS.png">  
-<p>安装过程一直默认下一步就行。</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>hexo依赖Node.js和Git，因此还需要安装Git。  </p>
-<ul>
+    <title>利用Github建Hexo博客</title>
+    <url>/2020/08/08/%E5%88%A9%E7%94%A8Github%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容概览：利用Github中的Github Pages服务，以及Hexo自带的一键部署功能，将本地搭建好的博客部署至Github，并通过对应Github仓库链接实现浏览器访问博客页面。</p>
+<p>目的：从零开始快速搭建属于自己的博客，并可通过浏览器访问。</p>
+<blockquote>
+<p>啥是<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>？</p>
+<p>一个基于Nodejs、快速简洁高效的博客框架（静态博客）。拥有超快渲染、支持Markdown、一键部署、可扩展性等功能，且有众多美观、强大、可定制的主题。</p>
+</blockquote>
+<p><strong>本文分为以下部分：</strong></p>
+<ol>
+<li>Hexo博客本地搭建</li>
+<li>部署至Github</li>
+<li>写博客相关</li>
+</ol>
+<h1 id="Hexo博客本地搭建"><a href="#Hexo博客本地搭建" class="headerlink" title="Hexo博客本地搭建"></a>Hexo博客本地搭建</h1><p>步骤概览：</p>
+<ol>
+<li>环境搭建</li>
+<li>安装与初始化Hexo</li>
+<li>基本操作</li>
+</ol>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><blockquote>
+<p>在安装Hexo前，我们需要做一些准备工作，Hexo既然是基于Node.js，那首先需要安装Node.js。为了更好的使用相关命令，还需要安装Git工具。如之前已安装过这两个，可跳过<strong>环境搭建</strong>，进入<strong>安装Hexo</strong>。</p>
+</blockquote>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><blockquote>
+<p>什么是Node.js? </p>
+<p>Node.js是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript 运行环境.</p>
+</blockquote>
+<ol>
+<li>点击<a href="https://nodejs.org/en/" target="_blank" rel="noopener">传送门</a>进入官网</li>
+<li>选择LTS版下载并安装，安装过程一直默认下一步即可</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/baec85228aa691abe75900e645897ef5.png" alt="image-20200808124308748"></p>
+<blockquote>
+<p>目前版本可能高于图片所示，按最新的LTS版本下载</p>
+</blockquote>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>此处提供两种下载方法，安装过程一直默认下一步即可</p>
+<ol>
 <li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网传送门</a>  </li>
-</ul>
-<p>由于“墙”的原因，Git在官网上下载会非常慢，这里提供<a href="https://www.lanzous.com/i8yrbkf" target="_blank" rel="noopener">更快速的下载</a>。<br>安装过程一直默认下一步就行。</p>
-<h3 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h3><p>在上一步中，我们已经安装好了Git，打开C盘右键可以看到Git Bash选项。<br>点击Git Bash打开界面，输入以下命令：<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br>等待安装完成后可以输入<code>cnpm -v</code>查看版本。</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>安装好了cnpm后，便可以利用它下载并安装hexo了。<br>在命令行中输入：<code>cnpm install -g hexo-cli</code><br>自动下载安装完hexo后，同样可以输入<code>hexo -v</code>查看版本。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="博客初始化"><a href="#博客初始化" class="headerlink" title="博客初始化"></a>博客初始化</h3><p>经过以上步骤，所需的环境都已经准备好了。</p>
-<ol>
-<li><p>选择一个你想要存放博客的位置，如<code>C:\Users\Administrator</code>  </p>
-</li>
-<li><p>新建一个文件夹（取名随意，如<code>blog</code>即可，下称<code>blog文件夹</code>）用以存放hexo博客（如果后面不喜欢了可以删掉重来）</p>
-</li>
-<li><p>进入blog文件夹，右键打开Git Bash（要安装Git后才有）</p>
-</li>
-<li><p>输入<code>hexo init</code>命令初始化blog文件夹</p>
-</li>
+<li><a href="https://www.lanzous.com/i8yrbkf" target="_blank" rel="noopener">蓝奏云链接</a></li>
 </ol>
 <blockquote>
-<p>等待一会（实际上要很久），便可以在blog目录下实现博客的初始化了。<br>这是已经初始化后的<a href="https://wwa.lanzous.com/iBzd6f3ou0h" target="_blank" rel="noopener">博客文件夹</a>，解压后可按需重命名使用。</p>
+<p>由于特殊原因，官网下载较慢，建议使用第二种下载。</p>
 </blockquote>
-<ol start="5">
-<li>初始化完毕后，便可以看到blog文件夹里，已经有博客框架的相关文件了。<br>（看看它出生的样子…）  </li>
-<li>输入<code>hexo s</code>，打开本地服务器端口。  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Administrator@PC-20190401CFTN MINGW64 ~&#x2F;blog</span><br><span class="line">$ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>可以看到端口号是4000，打开浏览器输入网址<code>http://localhost:4000</code>，你就可以看到它的样子了。</li>
-</ol>
+<p><strong>安装CNPM</strong></p>
 <blockquote>
-<p>注意这里不要用Ctrl+C复制命令行里的网站，因为Ctrl+C会退出服务器。</p>
+<p>该步骤用以替代npm下载hexo，cnpm为淘宝镜像源下载更快。但在此之前，还是得通过npm下载cnpm。</p>
 </blockquote>
-<h3 id="创建你的第一篇博客"><a href="#创建你的第一篇博客" class="headerlink" title="创建你的第一篇博客"></a>创建你的第一篇博客</h3><p>在本地浏览的时候，你会发现已经有了一篇博客，那是hexo初始化blog时默认生成的。<br>（可以暂时先不用删除，留作纪念…） </p>
-<p>现在让我们开始创建我们的第一篇博客吧。</p>
-<ol>
-<li>关闭上面打开的服务器，即在命令行中按下Ctrl+C。</li>
-<li>输入：<code>hexo n &#39;我的第一篇博客&#39;</code><br>即可在/blog/source/-posts/目录（该目录即博客文章存储目录）下生成一个名为“我的第一篇博客”的md文件。</li>
+<p>在上一步中，我们已经安装好了Git，打开C盘，右键便可以看到Git Bash选项。 </p>
+<p>点击Git Bash打开界面，输入以下命令并回车：  </p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code> </p>
+<p>等待安装完成后可以输入<code>cnpm -v</code>查看版本。</p>
+<blockquote>
+<p>注意，在windows系统中，Git工具不支持Ctrl + C/V快捷键，建议使用右键复制/粘贴。</p>
+</blockquote>
+<h2 id="安装与初始化Hexo"><a href="#安装与初始化Hexo" class="headerlink" title="安装与初始化Hexo"></a>安装与初始化Hexo</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>同样在上述右键Git Bash后的界面中，输入<code>cnpm install -g hexo-cli</code>回车，即可通过cnpm下载并安装Hexo。待完成后，可输入<code>hexo -v</code>查看版本。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ol>
+<li>选择一个你想要存放博客的位置，如<code>C:\Users\Administrator</code>（无硬性要求，放在哪都行）</li>
+<li>新建一个文件夹（取名随意，如<code>MyHexoBlogs</code>即可，下称<code>根目录</code>）用以存放Hexo博客（如果后面不喜欢了可以删掉这个文件夹，重新进行初始化）</li>
 </ol>
 <blockquote>
-<p>md文件可以用各种markdown编辑器打开，并撰写文章。<br>当然也可以用其他任意文本编辑器打开，但那写起来不太方便，不能实时查看效果。<br>这里做举例用，用记事本打开也行。  </p>
+<p>提示：初始化博客可能不同机型使用的时间不等，可能需等待很久，想要体验完整的初始化流程的可忽略此提示。如果不想等待，可直接下载初始化后的<a href="https://wwa.lanzous.com/iBzd6f3ou0h" target="_blank" rel="noopener">根目录文件夹</a>，解压后放置到想要存放位置（可按需重命名使用），并跳至第5步继续（初始化完毕后，便可以……）。</p>
 </blockquote>
 <ol start="3">
-<li>打开“我的第一篇博客”md文件，在已有的内容下方输入你想输入的内容，如：  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 今天是个特殊的日子 ##  </span><br><span class="line">### 我写下了我的第一篇博客 ###  </span><br><span class="line">非常非常开心！！！  </span><br><span class="line">&gt; 虽然比较简单。。</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>Ctrl+S保存“我的第一篇博客”md文件，回到命令行，按序运行以下命令(每条命令执行需等待一会)：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>重新刷新你浏览器的<code>http://localhost:4000</code>界面（如果刚刚没关闭的话），即可看到你写的第一篇博客了。</li>
+<li>进入新建的根目录，右键打开Git Bash。</li>
+<li>输入<code>hexo init</code>命令初始化blog文件夹</li>
 </ol>
 <blockquote>
-<p>记得用完要按Ctrl+C关闭本地服务器哦。</p>
+<p>等待一会（实际上要很久），便可以在根目录下实现博客的初始化了。</p>
 </blockquote>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>经过上述步骤，我们已经实现了利用hexo搭建博客，并写下第一篇文章。  </p>
+<ol start="5">
+<li>初始化完毕后，便可以看到根目录里，已经有博客框架的相关文件了。（看看它出生的样子…）  </li>
+<li>（同样在根目录下右键打开Git Bash的界面中）命令行输入<code>hexo s</code>，打开本地服务器端口。 </li>
+</ol>
+<p>出现以下内容即为已开启：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>可以看到端口号是4000，打开浏览器在网址处输入<code>http://localhost:4000</code>回车，你就可以在浏览器中看到它的样子了。</li>
+</ol>
+<blockquote>
+<p>注意：这里不要用Ctrl + C复制命令行里的网站，因为Ctrl + C会退出服务器。</p>
+<p>当不想继续浏览时，记得按Ctrl + C关闭服务。</p>
+</blockquote>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="创建你的第一篇博客"><a href="#创建你的第一篇博客" class="headerlink" title="创建你的第一篇博客"></a>创建你的第一篇博客</h3><p>在本地浏览的时候，你会发现已经有了一篇博客，那是hexo初始化blog时默认生成的。</p>
+<blockquote>
+<p>可以暂时先不用删除，留作纪念hh</p>
+</blockquote>
+<p>现在让我们开始创建我们的第一篇博客吧，具体步骤如下：</p>
+<ol>
+<li>关闭上面打开的服务器，即在命令行中按下Ctrl + C。</li>
+<li>输入<code>hexo new &#39;我的第一篇博客&#39;</code>即可在根目录下的source/-posts/目录（该目录即博客文章存储目录）下生成一个名为“我的第一篇博客”的md文件。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/c884bcc2cf578050b7752c8ba54dd3a1.png" alt="image-20200808140240273"></p>
+<blockquote>
+<p>md文件是啥？</p>
+<p>md文件即Markdown格式文件， Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。 在Hexo博客中，我们便是使用Markdown来写文章的。</p>
+<p>放心，Markdown的语法极其简单，常用的就那么几个。如果你使用的是Typora（一款极其优秀的Markdown编辑器），甚至无需记忆语法，直接使用快捷键或鼠标右键操作格式。</p>
+<p>（关于<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown的语法</a>，以及Typora的下载使用，可自行百度或参考我的文章。）</p>
+</blockquote>
+<ol start="3">
+<li>打开“我的第一篇博客”md文件</li>
+</ol>
+<blockquote>
+<p>md文件可以用任意文本编辑器打开，如记事本。但也可以使用专门的Markdown编辑器打开并撰写文章，此处仅作举例用，可暂时使用右键以记事本打开。</p>
+</blockquote>
+<ol start="4">
+<li>可以看到在md文件中已存在部分内容，下称 <code>头格式</code>（在此暂不做讲解，在我的后续文章中将有介绍，刚开始时可直接忽略，专注在写博客上），在其下方输入你想输入的内容（即博客正文），如：  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的第一篇博客</span><br><span class="line">date: 2020-01-01 00:00:00</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">## 今天是个特殊的日子</span><br><span class="line">### 我写下了我的第一篇博客</span><br><span class="line">非常非常开心！！！  </span><br><span class="line">&gt; 虽然比较简单。。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>#</strong>号 和 <strong>&gt;</strong>号 便是一种markdown格式符。其中## 为二级标题；### 为三级标题；&gt; 为引用。</p>
+<p>若使用专门的markdown编辑器可实时查看效果图。</p>
+<p>以下为Typora编辑器示意图：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/46a8eaa92bab013b514143f72f917b8f.png" alt="image-20200808140340222"></p>
+</blockquote>
+<ol start="5">
+<li><p>Ctrl+S保存“我的第一篇博客”md文件，回到Git命令行，键入<code>hexo s</code>打开服务器</p>
+</li>
+<li><p>重新刷新你浏览器的<code>http://localhost:4000</code>界面（如果刚刚没关闭的话，关了就重新打开即可），便能够看到你写的第一篇博客了。</p>
+</li>
+</ol>
+<blockquote>
+<p>用完记得要按Ctrl + C关闭本地服务器哦。</p>
+</blockquote>
+<h3 id="Hexo常用命令小结"><a href="#Hexo常用命令小结" class="headerlink" title="Hexo常用命令小结"></a>Hexo常用命令小结</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">hexo new &#39;title&#39;</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>hexo init 用于初始化博客，在最开始的时候用一次就够了</li>
+<li>hexo new ‘title’ 用于新建一篇md文件（直接右键新建md文件的话，是没有头格式的），单引号内为博客名称</li>
+<li>hexo s 我们上面已经用过了，实际上是 hexo server 命令的简写，即启动服务器，默认端口为4000</li>
+<li>hexo clean 为清除缓存文件和已经生成的静态文件（为保证更改配置后生效用的）</li>
+<li>hexo g 即 hexo generate 命令的简写，用于生成静态文件（后续搭配部署用的，也是hexo称为静态博客的原因）</li>
+<li>hexo d 即 Hexo deploy 命令的简写，用于将本地静态文件部署至网络（需搭配 hexo g 使用）</li>
+</ol>
+<p>后三种将在以下部分介绍在什么时候使用，更多更详细的命令可参考<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">Hexo官方文档</a>或自行百度。</p>
+<h1 id="部署至Github"><a href="#部署至Github" class="headerlink" title="部署至Github"></a>部署至Github</h1><p>在经过上述步骤后，我们已经实现了本地搭建Hexo博客，并写下了第一篇博客。</p>
+<p>但此时，我们只能在本地进行访问，若想让其他人也能通过浏览器访问自己的博客，就需要将Hexo的静态文件部署至服务器上。由于自己购买服务器搭建费时费力，且要定期维护，如果有这方面爱好或是希望锻炼自己的话可以捣鼓捣鼓，否则不建议这样做。</p>
+<p>这里选择的是Github平台，虽然是国外的偶尔可能访问较慢，但也胜在方便快捷，不需要定期维护。</p>
+<blockquote>
+<p>在此正式步骤开始之前，我们得先有一个Github账号。</p>
+<p>如无Github账号，请登录<a href="https://github.com/" target="_blank" rel="noopener">Github官网</a>注册。</p>
+<p>如需具体步骤，可参考<a href="https://jingyan.baidu.com/article/455a9950abe0ada167277864.html" target="_blank" rel="noopener">此链接</a>或自行百度</p>
+<p>注册时的昵称将成为未来访问博客时，所使用网址的一部分。</p>
+<p>建议取个好听好记的名字。</p>
+</blockquote>
+<p>步骤概览：</p>
+<ol>
+<li>创建Github仓库</li>
+<li>生成并添加SSH</li>
+<li>Hexo配置文件</li>
+<li>一键部署</li>
+</ol>
+<h2 id="创建Github仓库"><a href="#创建Github仓库" class="headerlink" title="创建Github仓库"></a>创建Github仓库</h2><ol>
+<li>登录<a href="https://github.com/" target="_blank" rel="noopener">Github官网</a></li>
+<li>登录后，在右上角点击加号，选择<code>New repository</code>新建一个仓库。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/2d0a22645fe72fbd157a273975fbed92.png" alt="001"></p>
+<ol start="3">
+<li>按下图设置</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/4d44099c55a205cf0993aaa3505b4a0f.png" alt="002"></p>
+<blockquote>
+<p>假设昵称为<code>zhangsan</code>，则Repository name（仓库名）需填写为<code>zhangsan.github.io</code>，一定得是<code>昵称.github.io</code>这个格式。</p>
+<p>Description描述随便写，然后点击Create repository创建仓库。</p>
+</blockquote>
+<h2 id="生成并添加SSH"><a href="#生成并添加SSH" class="headerlink" title="生成并添加SSH"></a>生成并添加SSH</h2><ol>
+<li>回到Git Bash中，在命令行中依次输入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;gitHubname&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>githubname为你的Github用户名，email则是Github注册时的邮箱</p>
+</blockquote>
+<ol start="2">
+<li>输入<code>ssh-keygen -t rsa -C &quot;email&quot;</code>生成SSH</li>
+</ol>
+<blockquote>
+<p>同样的，email为Github注册时的邮箱。</p>
+<p>过程中一直回车即可。</p>
+</blockquote>
+<ol start="3">
+<li>用记事本打开生成的<code>id_rsa.pub</code>文件，复制所有内容</li>
+</ol>
+<blockquote>
+<p>一般来说，生成的ssh会在<code>C:\Users\用户名\.ssh</code>目录下</p>
+</blockquote>
+<ol start="4">
+<li>回到Github页面，点击头像，打开<code>setting</code></li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/fbb07c948ffaf7aa26e690c7f198e616.png" alt="image-20200808182856647"></p>
+<ol start="5">
+<li>在<code>SSH and GPG keys</code>选项卡内点击<code>New SSH key</code>添加新的SSH密钥</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/c67cacce2070362393a8bb0c8de59ea4.png" alt="image-20200808183121000"></p>
+<ol start="6">
+<li>Title随便写，在Key中粘贴刚刚第3步中复制的内容，点击Add SSH key添加。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/d4107227e8b681171467ab18e2c4ecfe.png" alt="image-20200808183545458"></p>
+<ol start="7">
+<li>回到Git Bash中，输入 <code>ssh -T git@github.com</code>查看是否成功。</li>
+</ol>
+<h2 id="Hexo配置文件"><a href="#Hexo配置文件" class="headerlink" title="Hexo配置文件"></a>Hexo配置文件</h2><h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><h1 id="写博客相关"><a href="#写博客相关" class="headerlink" title="写博客相关"></a>写博客相关</h1><h1 id="（可选）通过域名访问博客"><a href="#（可选）通过域名访问博客" class="headerlink" title="（可选）通过域名访问博客"></a>（可选）通过域名访问博客</h1><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>经过上述步骤，我们已经实现了利用hexo搭建博客，并写下第一篇文章。  </p>
 <p>像是环境搭建之类的步骤已经完成，今后如果需要删除blog重新初始化，只需要按上面介绍使用<code>hexo init</code>命令就可以了，不需要全部重新来过。  </p>
 <p>如果一直保留blog（通常也没必要删除），那么到目前为止，所介绍最常用的就是以下4个命令：  </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo n &#39;博客文章名&#39; #创建一个md文件，即博客文章</span><br><span class="line">hexo c #清理缓存</span><br><span class="line">hexo g #生成静态博客</span><br><span class="line">hexo s #运行本地服务器，用于本地预览调试</span><br></pre></td></tr></table></figure>
 
 <p>写博客时，需要查看所写内容在网页中的效果时，建议按序执行<code>hexo c</code>、<code>hexo g</code>、<code>hexo s</code>这3个命令，并打开（或刷新）本地<code>localhost:4000</code>网页，即可在本地浏览你的博客。 </p>
-<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>此时的界面可能并不是非常美观，并且也只能在本地浏览，hexo博客的美化与部署将在后续文章中讲解，但可以先再去熟悉一下上述的流程，特别是常用的4个命令，这在今后写博客时十分常用。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>此时的界面可能并不是非常美观，并且也只能在本地浏览，hexo博客的美化与部署将在后续文章中讲解，但可以先再去熟悉一下上述的流程，特别是常用的4个命令，这在今后写博客时十分常用。</p>
 <p>也可在此同时找到一款喜欢的markdown编辑器，并学习markdown语法。</p>
-<p><strong>未完待续…</strong></p>
+<p>（可选）通过域名访问博客</p>
+<p>推荐参考资料：</p>
+<p><strong>参考资料：</strong></p>
+<p><strong>感谢：</strong></p>
+<p><strong>文中提及开源链接：</strong></p>
 ]]></content>
+      <categories>
+        <category>自建博客</category>
+      </categories>
       <tags>
         <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>testblog</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/</url>
-    <content><![CDATA[<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/testblog/39469-20200316225119792-1402012599.png" class="" title="39469-20200316225119792-1402012599">]]></content>
-  </entry>
-  <entry>
-    <title>Hexo更换主题</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p>Hexo原生的主题可能过于“简约”，我们可下载自己喜欢的主题并使用。<a href="https://hexo.io/themes/含超过300款主题，可供参考。" target="_blank" rel="noopener">https://hexo.io/themes/含超过300款主题，可供参考。</a></p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>以 <code>Butterfly</code>主题为例，GitHub网址为<a href="https://github.com/jerryc127/hexo-theme-butterfly.git，需首先将其下载至themes目录下新建的Butterfly文件夹下。具体步骤如下：" target="_blank" rel="noopener">https://github.com/jerryc127/hexo-theme-butterfly.git，需首先将其下载至themes目录下新建的Butterfly文件夹下。具体步骤如下：</a></p>
+    <title>利用Github建图床（搭配Typora食用更佳）</title>
+    <url>/2020/08/04/%E5%88%A9%E7%94%A8Github%E5%BB%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E6%90%AD%E9%85%8DTypora%E9%A3%9F%E7%94%A8%E6%9B%B4%E4%BD%B3%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容概览：利用Github仓库无限存储空间的特点自建图床，搭配使用Chuibi图床、PicGo软件等工具上传管理，并介绍搭配Typora一同使用时的食用指南。</p>
+<p>目的：在使用Typora写作时，拥有优雅流畅的图片插入体验。</p>
+<blockquote>
+<p><strong>啥是图床？</strong></p>
+<p>用以存放图片的网络存储空间/服务器</p>
+<p><strong>为啥要用图床？</strong></p>
+<p>在使用markdown时，图片有三种添加方式：本地绝对路径，本地相对路径，网络路径。</p>
+<p>前两者一般仅在本地使用时较为常见。</p>
+<p>采用本地绝对路径时容易因图片位置的变动而无法显示，需要在md文件中重新编辑图片路径，因此分享时及其不方便，不仅需要一同发送图片，且接收者需按照自己接受图片的文件路径重新编辑路径。</p>
+<p>采用相对路径能较好的解决分享重编辑问题，只需保证md文件和图片文件的相对位置，但分享也是需要一同发送图片。</p>
+<p>（当然，若使用Typora编辑器，可导出pdf分享，但仍然无法解决本地图片变动时的编辑繁琐问题。）</p>
+<p>而采用网络路径，能很好的解决以上问题（再说了，难道用电脑存一辈子本地图片吗）。</p>
+</blockquote>
+<p><strong>本文分为以下部分：</strong></p>
 <ol>
-<li>打开博客主文件夹，右键Git Bash Here，输入以下命令</li>
+<li><p>创建Github仓库</p>
+</li>
+<li><p>获取Token</p>
+</li>
+<li><p>Chuibi图床使用</p>
+</li>
+<li><p>PicGo图床工具</p>
+</li>
+<li><p>Typora搭配食用</p>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone -b master https:&#x2F;&#x2F;github.com&#x2F;jerryc127&#x2F;hexo-theme-butterfly.git themes&#x2F;Butterfly</span><br></pre></td></tr></table></figure>
-
+<h1 id="创建Github仓库"><a href="#创建Github仓库" class="headerlink" title="创建Github仓库"></a>创建Github仓库</h1><blockquote>
+<p>如无Github账号，请登录<a href="https://github.com/" target="_blank" rel="noopener">Github官网</a>注册。</p>
+<p>具体步骤可参考<a href="https://jingyan.baidu.com/article/455a9950abe0ada167277864.html" target="_blank" rel="noopener">此链接</a>或自行百度</p>
+</blockquote>
+<ol>
+<li>登陆后，页面右上角新建一个仓库（New repository）</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/322139528d6299e898087a57f54d8fe8.png" alt=""></p>
 <ol start="2">
-<li>如果没有下载安装过 pug 与 stylus 的渲染器，输入以下命令</li>
+<li>编辑创建<ul>
+<li>仓库名称（Repository name）看自己喜好写，<strong>待会要用到</strong>，这里以MyGraphBed为例。</li>
+<li>描述（Description）随意写，这里以我的图床为例。</li>
+<li>默认公开（Public）</li>
+<li>点击创建仓库（Create repository）</li>
+</ul>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/de380284e3a5c984b61e2059d140e8ca.png" alt=""></p>
+<h1 id="获取Token"><a href="#获取Token" class="headerlink" title="获取Token"></a>获取Token</h1><ol>
+<li>Github页面右上角点击头像，进入个人设置</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/198782fd3f307b982be2e8a7e989f2bc.png" alt=""></p>
+<ol start="2">
+<li>选择Developer settings选项</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/2173df7833b5596dfc28908d3cf57375.png" alt=""></p>
 <ol start="3">
-<li>修改站点配置文件 <code>_config.yml</code>，找到theme后修改</li>
+<li>选择Personal access tokens后，创建新token（Generate new token）</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: butterfly</span><br></pre></td></tr></table></figure>
-
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/a79ee721412f2894e644e6474a1efbfe.png" alt=""></p>
+<blockquote>
+<p>此时可能会要求我们输入Github密码，填写确认后继续即可。</p>
+</blockquote>
 <ol start="4">
-<li>输入 <code>hexo clean</code>清理一下，后输入 <code>hexo s</code>启动hexo</li>
-<li>打开浏览器输入 <code>http://localhost:4000/</code>查看效果</li>
+<li>Note部分随便写，并勾选repo的全部权限</li>
 </ol>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
-<li>打开<code>_config.yml</code>站点配置文件，修改站点信息</li>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/9e9f666e5dcf18ae5de4e8fd90ba83bd.png" alt="image-20200804123804212"></p>
+<ol start="5">
+<li>拉至页面底部，点击Generate token创建。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">#把这里修改为你的站点名，即网站标题</span><br><span class="line">title: XX  </span><br><span class="line">#副标题，可不输入</span><br><span class="line">subtitle: &#39;&#39;</span><br><span class="line">#描述，可以随便写句话描述你的网站</span><br><span class="line">description: &#39;&#39;XX</span><br><span class="line">#关键词，可不写，写多个时用,隔开XX</span><br><span class="line">keywords:</span><br><span class="line">#作者名</span><br><span class="line">author: XX</span><br><span class="line">#语言</span><br><span class="line">language: en</span><br><span class="line">#时区</span><br><span class="line">timezone: &#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>打开themes里butterfly文件夹的<code>_config.yml</code>文件，按提示配置</li>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/0d4dfb955243f919a91c32d387d17884.png" alt=""></p>
+<ol start="6">
+<li>点击复制该Token，并妥善保管（Token只显示一遍，一定要保存好）</li>
 </ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/1d669884996672dab79f80df8cebe244.png" alt=""></p>
+<blockquote>
+<p>如果真不小心在还没复制的时候关闭了页面，或刷新，就不会再显示了。</p>
+<p>不过不用担心，由于此时我们还没使用Token进行其他配置，可以先把该Token删除（点击Delete），按上面的方法从点击Generate new token开始再来一次。</p>
+</blockquote>
+<h1 id="Chuibi图床使用"><a href="#Chuibi图床使用" class="headerlink" title="Chuibi图床使用"></a>Chuibi图床使用</h1><p>Chuibi图床是<a href="https://github.com/yumusb/autoPicCdn" target="_blank" rel="noopener">autoPicCdn</a>的线上版本，更便于操作。<br>该步骤用于将我们的图片上传至刚刚创建的Github仓库，并返回图片地址。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li><p>进入<a href="https://chuibi.cn/" target="_blank" rel="noopener">Chuibi图床</a>界面</p>
+</li>
+<li><p>点击用户登录，填写Github账号信息登录。</p>
+</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/1c1e1cc57c35b70433644951b0bdbd9b.png" alt=""></p>
+<blockquote>
+<p>出现下图时，请稍加等待</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/68df3a26861c298008e737134a267612.png" alt=""></p>
+</blockquote>
+<ol start="3">
+<li>点击图标进入配置</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/134d874ef04cdff570e4b449bd99e5ed.png" alt=""></p>
+<ol start="4">
+<li><p>自定义仓库设置</p>
 <ul>
-<li>官方文档：<a href="https://demo.jerryc.me/" target="_blank" rel="noopener">https://demo.jerryc.me/</a></li>
-<li>小康博客：<a href="https://www.antmoe.com/categories/Hexo/page/3/" target="_blank" rel="noopener">https://www.antmoe.com/categories/Hexo/page/3/</a></li>
+<li><p>仓库名填写刚刚创建的那名MyGraphBed</p>
+</li>
+<li><p>用户名就是你的Github用户名</p>
+</li>
+<li><p>邮箱填写你Github绑定的邮箱</p>
+</li>
+<li><p>TOKEN填写刚刚让妥善保管的，那一长串token</p>
+</li>
+<li><p>自定义填写1，表示开启</p>
+</li>
+<li><p>点击立即提交</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/ed8c34549ab6356ee54def24fa4700c5.png" alt=""></p>
+<ol start="5">
+<li>此时界面中将出现接口信息，表示此时可以上传图片了（提醒：请妥善保管接口信息，别被人看到，该信息泄露意味着别人也可以用你的接口）</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/71aab62e3a7b1f29e4dd5d662970e8d4.png" alt=""></p>
+<ol start="6">
+<li>上传效果如下，我们使用markdown格式写作时一般复制最下面的一种格式，粘贴到md文件中即可（若使用Typora写作粘贴后可直接查看浏览图）。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/714dc4f72df16ee5de97b1653834ff10.png" alt=""></p>
+<h1 id="PicGo图床工具"><a href="#PicGo图床工具" class="headerlink" title="PicGo图床工具"></a>PicGo图床工具</h1><blockquote>
+<p>PicGo需提前安装Node.js，否则无法安装插件。</p>
+<p>如未安装，可参考以下步骤：</p>
+<ol>
+<li><p>进入<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js官网</a></p>
+</li>
+<li><p>选择LTS（长期支持版）下载</p>
+</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/f5194aeb076d05c0e3590d7762a3c210.png" alt=""></p>
+<p>（图片仅供参考，当前版本可能已高于图片所示）</p>
+<ol start="3">
+<li>安装过程一直默认下一步即可</li>
+</ol>
+</blockquote>
+<p>Chuibi图床使用时需打开浏览器，较为不便，且无法很好的管理已上传的图片，因此推荐使用PicGo图床工具管理。（<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">开源地址</a>）在使用PicGo前，请确保上述Chuibi图床可正常使用。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li>下载安装PicGo</li>
+</ol>
+<p>开源地址内的链接在国内下载很慢，在此提供<a href="https://wwa.lanzous.com/iT5SXf92yoj" target="_blank" rel="noopener">蓝奏云下载链接</a>。</p>
+<p>下载位置任意，只需要注意PicGo不要安装在Program Files文件夹中。</p>
+<ol start="2">
+<li>安装后打开PicGo，进入插件设置，搜索并安装web-uploader插件</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/0715aff39bfda4cdfb972f5e6f555291.png" alt=""></p>
+<ol start="3">
+<li>打开图床设置，选择自定义Web图床<ul>
+<li>将Chuibi图床中的接口信息复制粘贴到API地址中</li>
+<li>POST参数名设为pic</li>
+<li>JSON路径设为data.url</li>
+<li>点击确定，并设为默认图床</li>
+</ul>
+</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/26150f864917c3778cda1d63598cc2ea.png" alt=""></p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/71aab62e3a7b1f29e4dd5d662970e8d4.png" alt=""></p>
+<ol start="4">
+<li>上传测试。打开上传区，使用拖拽或点击上传图片测试，等待进度条结束后，图片链接将自动复制到剪切板，粘贴到md文件中即可（若使用Typora写作粘贴后可直接查看浏览图）。</li>
+</ol>
+<h2 id="PicGo功能介绍"><a href="#PicGo功能介绍" class="headerlink" title="PicGo功能介绍"></a>PicGo功能介绍</h2><ol>
+<li>上传介绍</li>
+</ol>
+<p>在上传前选择的链接格式，决定上传后自动复制到剪切板的图片链接格式。若剪切板有复制的图片或使用软件的截图功能后，可通过剪贴板图片上传按钮快捷上传（或使用快捷键Ctrl+Shift+P）。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/348e08b33b574fab7dc67342f2508947.png" alt="82cd9bf189126b53475c58ce44fd7dc2"></p>
+<ol start="2">
+<li>相册介绍</li>
+</ol>
+<p>在相册中，图片左下角的三个图标分别为：复制链接，修改链接，删除图片。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/5c31b21f8b97869793fbd43012295e33.png" alt=""></p>
+<p>右下角可选取多个图片进行批量复制或批量删除。<br>其中，复制链接图标的格式，取决于上传区链接格式的设置。</p>
+<ol start="3">
+<li><p>PicGo设置</p>
+<ul>
+<li><p>修改快捷键：设置剪切板快捷上传的快捷键</p>
+</li>
+<li><p>选择显示的图床：可将不使用的图床取消勾选，其将不在图床设置中显示</p>
+</li>
+<li><p>其他设置可按需自行探索配置</p>
+</li>
+</ul>
+</li>
+<li><p>补充</p>
+<ul>
+<li>觉得PicGo的上传成功通知消息烦的，建议在它弹出的时候设置不再提醒</li>
+</ul>
+</li>
+</ol>
+<h1 id="Typora搭配食用"><a href="#Typora搭配食用" class="headerlink" title="Typora搭配食用"></a>Typora搭配食用</h1><p>Typora是一款优秀的markdown编辑器，可实时渲染，其0.9.84版本及以上版本已支持通过PicGo上传图片。</p>
+<blockquote>
+<p>如未安装，可通过以下渠道下载：</p>
+<ul>
+<li><a href="https://www.typora.io/" target="_blank" rel="noopener">官网下载</a>（可能较慢）</li>
+<li><a href="https://wwa.lanzous.com/i18iCf92i6f" target="_blank" rel="noopener">蓝奏云链接</a></li>
+</ul>
+</blockquote>
+<p>在进行Typora的设置前，我们需要更改一下PicGo的监听b端口。</p>
+<p>因为PicGo的默认监听是36679，typora是36677。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li>选择PicGo设置，点击设置Server</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/5882fae97120213af1e3e960e0e6ff5a.png" alt=""></p>
+<ol start="2">
+<li>将设置监听端口改为36677，点击确定即可。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/92c231e2165778ec097fd1efb2e2c3e3.png" alt=""></p>
+<p>接下来便可进行Typora的设置。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li><p>打开Typora，选择设置，并进入偏好设置，或直接使用快捷键Ctrl+，<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/182fcbd6ab164bea445d8f98ba03d43a.png" alt=""></p>
+</li>
+<li><p>在偏好设置中，选择图像进行以下设置。</p>
+<ul>
+<li>插入图片时…选择上传图片处理，并勾选前两个功能</li>
+<li>在上传服务中，设置未PicGo（app）</li>
+<li>PicGo路径填写PicGo.exe的启动路径</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>可以通过右键打开桌面PicGo快捷键，选择属性，复制目标内容，即为PicGo启动路径。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/04/9cb39305c279ef4ce0b0233671529dc7.png" alt=""></p>
+</blockquote>
+<ol start="4">
+<li>点击<strong>验证图片上传选项</strong>，进行第一次链接（打开PicGo中的相册，若能看到Typora的图标，那么证明可以使用了）</li>
+</ol>
+<blockquote>
+<p>成功后请重启Typora使用。</p>
+</blockquote>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>经过上述步骤，当我们使用Typora想插入图片时，只需要在后台打开PicGo（可设置为开机自启），将图片放入Typora时即可自动上传，并将图片路径自动转为网络路径。体验极其友好。</p>
+<p>可配合使用软件的截图功能，直接粘贴到Typora，再无任何繁琐流程。</p>
+<p>当然也可以打开PicGo手动上传，再将链接使用在其他方面上。</p>
+<p>想使用已往上传过的图片时，只需要打开PicGo的相册，复制链接粘贴即可。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>除了上述方法外，也可使用Gitee作为图床，或使用<em>autoPicCdn</em>+免费的国外虚拟主机的方案制作自己的图床。</p>
+<p>PicGo也支持其他图床的接口，如又拍云、阿里图床等，可根据需要自行搜索配置。</p>
+<p><strong>参考资料：</strong></p>
+<ul>
+<li><p>XJHui’s Blog：<a href="https://plushine.cn/38834.html" target="_blank" rel="noopener">https://plushine.cn/38834.html</a></p>
+</li>
+<li><p>小康博客：<a href="https://www.antmoe.com/posts/c9c6437b/index.html" target="_blank" rel="noopener">https://www.antmoe.com/posts/c9c6437b/index.html</a></p>
+</li>
+<li><p>BM0500：<a href="https://blog.csdn.net/weixin_40453710/article/details/105722138" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40453710/article/details/105722138</a></p>
+</li>
+<li><p>摸鱼师：<a href="https://blog.csdn.net/jankin6/article/details/105504490" target="_blank" rel="noopener">https://blog.csdn.net/jankin6/article/details/105504490</a></p>
+</li>
+</ul>
+<p><strong>感谢：</strong></p>
+<ul>
+<li>蓝奏云：<a href="https://www.lanzou.com/" target="_blank" rel="noopener">https://www.lanzou.com/</a></li>
+</ul>
+<p><strong>文中提及开源链接：</strong></p>
+<ul>
+<li><p>PicGo：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo</a></p>
+</li>
+<li><p>autoPicCdn：<a href="https://github.com/yumusb/autoPicCdn" target="_blank" rel="noopener">https://github.com/yumusb/autoPicCdn</a></p>
+</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>自建博客</category>
+      </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>图床</tag>
+        <tag>Typora</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客Typora图片处理</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>经以下步骤，可在使用Typora编写时能实时看到图片，且本地使用 <code>hexo server</code>浏览时也能看到图片。</p>
-<blockquote>
-<p>无需使用图床作为图片的保存方式，且在浏览时无需使用网络。</p>
-</blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>通过 <code>Ctrl + ，</code>或菜单进入Typora的偏好设置，点击“图像”设置</p>
-</li>
-<li><p>参考图片设置为“复制到制定路径”与路径<code>./${filename}/</code>，即拷贝到与Markdown文件同名文件夹下。</p>
-<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Hexo%E5%8D%9A%E5%AE%A2Typora%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/image-20200710184706974.png" class="" title="image-20200710184706974">
-</li>
-<li><p>修改Hexo的全局配置文件<code>_config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 <code>hexo new &quot;博客名&quot;</code>创建一篇博客</p>
-</li>
-<li><p>通过Git命令 <code>npm install hexo-image-link --save</code>安装插件</p>
-</li>
-<li><p>使用 <code>hexo s</code> 或 <code>hexo server -debug</code>启动服务预览效果</p>
-</li>
-</ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.cnblogs.com/cocowool/p/hexo-image-link.html" target="_blank" rel="noopener">Hexo博客写作与图片处理的经验</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Typora使用指南</title>
-    <url>/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Typora%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<p>更新操作</p>
-<p>外观更改</p>
-<p><a href="https://www.antmoe.Com/" target="_blank" rel="noopener">https://www.antmoe.Com/</a></p>
-<p>:smile:</p>
-<img src= "/img/loading.gif" data-src="/2020/07/10/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/Typora%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/39469-20200316225119792-1402012599.png" class="" title="img">
-
-<hr>
-<h2 id="Typora-快捷键"><a href="#Typora-快捷键" class="headerlink" title="Typora 快捷键"></a>Typora 快捷键</h2><hr>
-<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>新建：Ctrl + N</li>
-<li>新建窗口：Ctrl + Shift + N</li>
-<li>打开：Ctrl + O</li>
-<li>快速打开：Ctrl + P</li>
-<li>保存：Ctrl + S</li>
-<li>另存为：Ctrl + Shift + S</li>
-<li>偏好：Ctrl + ,</li>
-<li>关闭：Ctrl + W</li>
-</ul>
-<hr>
-<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
-<li>显示隐藏侧边栏：Ctrl + Shift + L</li>
-<li>源代码模式：Ctrl + /</li>
-<li>专注模式：F8</li>
-<li>打字机模式：F9</li>
-<li>切换全屏：F11</li>
-<li>实际大小：Ctrl + Shift + 0</li>
-<li>放大：Ctrl + Shift + =</li>
-<li>缩小：Ctrl + Shift + -</li>
-<li>应用内窗口切换：Ctrl + Tab</li>
-<li>打开DevTools：Shift + F12</li>
-</ul>
-<hr>
-<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><ul>
-<li>标题：Ctrl + 1/2/3/4/5</li>
-<li>段落：Ctrl + 0</li>
-<li>增大标题级别：Ctrl + =</li>
-<li>减少标题级别：Ctrl + -</li>
-<li>有序列表：Ctrl + Shift + [</li>
-<li>无序列表：Ctrl + Shift + ]</li>
-<li>任务列表：- + 空 + [ + 空 + ]  + 空</li>
-<li>增加缩进：Ctrl + ]</li>
-<li>减少缩进：Ctrl + [</li>
-</ul>
-<hr>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
-<li>目录：[ + TOC + ] + Enter</li>
-</ul>
-<blockquote>
-<p>无法在Hexo博客上显示</p>
-</blockquote>
-<ul>
-<li><p><del>软换行：Shift + Enter</del><br>硬换行：空 + 空 + Shift + Enter<br>换段：Enter  </p>
-</li>
-<li><p><code>代码</code>：Ctrl + Shift + `  </p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块：Ctrl + Shift + K</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>脚注：[^ 1 ]</p>
-</li>
-<li><p>插入链接：Ctrl + k</p>
-</li>
-<li><p>锚点：[ + 内容 + ] + ( + # + 标题名 + )</p>
-</li>
-</ul>
-<blockquote>
-<p>引用：Ctrl + Shift + q</p>
-</blockquote>
-<p>$$<br>数学符号：Ctrl + Shift + M<br>$$</p>
-<table>
-<thead>
-<tr>
-<th>制表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Ctrl + T</td>
-</tr>
-</tbody></table>
-<ul>
-<li>插入图片：直接拖动到指定位置即可或者Ctrl + Shift + i</li>
-<li>分割线：：— + 回车</li>
-</ul>
-<hr>
-<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><ul>
-<li>粘贴为纯文本：Ctrl + Shift + V</li>
-<li>加粗：Ctrl + BU</li>
-<li>倾斜：Ctrl + i</li>
-<li>下划线：Ctrl + U</li>
-<li>删除线：Alt + Shift + 5</li>
-</ul>
-<hr>
-<h3 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h3><ul>
-<li><p>选中一整行：Ctrl + l</p>
-</li>
-<li><p>选中单词：Ctrl + d</p>
-</li>
-<li><p>选中相同格式的文字：Ctrl + e</p>
-</li>
-<li><p>跳转到文章开头：Ctrl + home</p>
-</li>
-<li><p>跳转到文章结尾：Ctrl + end</p>
-</li>
-<li><p>搜索：Ctrl + f</p>
-</li>
-<li><p>替换：Ctrl + h</p>
-</li>
-</ul>
-<hr>
-<p>[^ 1 ]: [ + ^ + 空 + 数字 + 空  + ]</p>
-]]></content>
+    <title>我的第一篇博客</title>
+    <url>/2020/01/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
