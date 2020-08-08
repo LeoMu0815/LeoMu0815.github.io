@@ -13,7 +13,6 @@
 <ol>
 <li>Hexo博客本地搭建</li>
 <li>部署至Github</li>
-<li>写博客相关</li>
 </ol>
 <h1 id="Hexo博客本地搭建"><a href="#Hexo博客本地搭建" class="headerlink" title="Hexo博客本地搭建"></a>Hexo博客本地搭建</h1><p>步骤概览：</p>
 <ol>
@@ -71,7 +70,10 @@
 <p>等待一会（实际上要很久），便可以在根目录下实现博客的初始化了。</p>
 </blockquote>
 <ol start="5">
-<li>初始化完毕后，便可以看到根目录里，已经有博客框架的相关文件了。（看看它出生的样子…）  </li>
+<li>初始化完毕后，便可以看到根目录里，已经有博客框架的相关文件了。（看看它出生的样子…）</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/5bc1e7d4fcf857ef5fc931709a8846f3.png" alt="image-20200808184320829"></p>
+<ol start="6">
 <li>（同样在根目录下右键打开Git Bash的界面中）命令行输入<code>hexo s</code>，打开本地服务器端口。 </li>
 </ol>
 <p>出现以下内容即为已开启：</p>
@@ -98,7 +100,6 @@
 <p>md文件是啥？</p>
 <p>md文件即Markdown格式文件， Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。 在Hexo博客中，我们便是使用Markdown来写文章的。</p>
 <p>放心，Markdown的语法极其简单，常用的就那么几个。如果你使用的是Typora（一款极其优秀的Markdown编辑器），甚至无需记忆语法，直接使用快捷键或鼠标右键操作格式。</p>
-<p>（关于<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown的语法</a>，以及Typora的下载使用，可自行百度或参考我的文章。）</p>
 </blockquote>
 <ol start="3">
 <li>打开“我的第一篇博客”md文件</li>
@@ -152,7 +153,6 @@
 <li>创建Github仓库</li>
 <li>生成并添加SSH</li>
 <li>Hexo配置文件</li>
-<li>一键部署</li>
 </ol>
 <h2 id="创建Github仓库"><a href="#创建Github仓库" class="headerlink" title="创建Github仓库"></a>创建Github仓库</h2><ol>
 <li>登录<a href="https://github.com/" target="_blank" rel="noopener">Github官网</a></li>
@@ -167,6 +167,9 @@
 <p>假设昵称为<code>zhangsan</code>，则Repository name（仓库名）需填写为<code>zhangsan.github.io</code>，一定得是<code>昵称.github.io</code>这个格式。</p>
 <p>Description描述随便写，然后点击Create repository创建仓库。</p>
 </blockquote>
+<ol start="4">
+<li>仓库创建成功后，会跳转到仓库页面，先别关闭该页面。</li>
+</ol>
 <h2 id="生成并添加SSH"><a href="#生成并添加SSH" class="headerlink" title="生成并添加SSH"></a>生成并添加SSH</h2><ol>
 <li>回到Git Bash中，在命令行中依次输入</li>
 </ol>
@@ -197,25 +200,57 @@
 </ol>
 <p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/c67cacce2070362393a8bb0c8de59ea4.png" alt="image-20200808183121000"></p>
 <ol start="6">
-<li>Title随便写，在Key中粘贴刚刚第3步中复制的内容，点击Add SSH key添加。</li>
+<li>Title随便写，在Key中粘贴刚刚第3步中复制的内容，点击<code>Add SSH key</code>添加。</li>
 </ol>
 <p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/d4107227e8b681171467ab18e2c4ecfe.png" alt="image-20200808183545458"></p>
 <ol start="7">
 <li>回到Git Bash中，输入 <code>ssh -T git@github.com</code>查看是否成功。</li>
 </ol>
-<h2 id="Hexo配置文件"><a href="#Hexo配置文件" class="headerlink" title="Hexo配置文件"></a>Hexo配置文件</h2><h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><h1 id="写博客相关"><a href="#写博客相关" class="headerlink" title="写博客相关"></a>写博客相关</h1><h1 id="（可选）通过域名访问博客"><a href="#（可选）通过域名访问博客" class="headerlink" title="（可选）通过域名访问博客"></a>（可选）通过域名访问博客</h1><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>经过上述步骤，我们已经实现了利用hexo搭建博客，并写下第一篇文章。  </p>
-<p>像是环境搭建之类的步骤已经完成，今后如果需要删除blog重新初始化，只需要按上面介绍使用<code>hexo init</code>命令就可以了，不需要全部重新来过。  </p>
-<p>如果一直保留blog（通常也没必要删除），那么到目前为止，所介绍最常用的就是以下4个命令：  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo n &#39;博客文章名&#39; #创建一个md文件，即博客文章</span><br><span class="line">hexo c #清理缓存</span><br><span class="line">hexo g #生成静态博客</span><br><span class="line">hexo s #运行本地服务器，用于本地预览调试</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo配置文件"><a href="#Hexo配置文件" class="headerlink" title="Hexo配置文件"></a>Hexo配置文件</h2><ol>
+<li>在Hexo博客根目录下，打开搭配站点配置文件<code>_config.yml</code></li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/c0f8ec94cc9b1b6e0842e82809764c68.png" alt="image-20200808184152830"></p>
+<ol start="2">
+<li>拉到最底下，找到 <code># Deployment</code>，修改为</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;githubname&#x2F;githubname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
-<p>写博客时，需要查看所写内容在网页中的效果时，建议按序执行<code>hexo c</code>、<code>hexo g</code>、<code>hexo s</code>这3个命令，并打开（或刷新）本地<code>localhost:4000</code>网页，即可在本地浏览你的博客。 </p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>此时的界面可能并不是非常美观，并且也只能在本地浏览，hexo博客的美化与部署将在后续文章中讲解，但可以先再去熟悉一下上述的流程，特别是常用的4个命令，这在今后写博客时十分常用。</p>
-<p>也可在此同时找到一款喜欢的markdown编辑器，并学习markdown语法。</p>
-<p>（可选）通过域名访问博客</p>
-<p>推荐参考资料：</p>
+<blockquote>
+<p>在repo那一行，将githubname填写为你的Github昵称</p>
+<p>注意，每个冒号都为英文冒号，且冒号后有一个空格！</p>
+</blockquote>
+<ol start="3">
+<li>回到Git Bash中，输入<code>npm install hexo-deployer-git --save</code>安装deploy-git</li>
+<li>安装后，在命令行按序输入：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>也就时在上面<strong>Hexo博客本地搭建</strong>末尾提及的6个命令中的后3个命令，因为修改了站点配置文件<code>_config.yml</code>，需要用<code>hexo clean</code>清除缓存。部署到GitHub的实际上是静态文件，也就是 <code>hexo g</code>命令在public文件夹下生成的静态文件，最后，通过 <code>hexo d</code>部署至github。</p>
+<p>注意，在<code>hexo d</code>命令执行时，可能要求输入username和password（即Github的昵称和密码），一般在第一次部署时才会出现。</p>
+</blockquote>
+<ol start="5">
+<li>此时回到刚刚创建仓库时，跳转的那个仓库页面，刷新一下，如果出现一堆文件夹和文件，就说明部署成功了！</li>
+<li>复制图中红框部分，在浏览器中新标签页地址内输入打开，就是真正通过网络访问你的博客了。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@latest/2020/08/08/38e47c40250e3326d3a08953eda33926.png" alt="image-20200808190247112"></p>
+<blockquote>
+<p>如果无法正常跳转，可尝试在前面加上<code>https://</code>如<code>https://yourname.github.io/</code></p>
+</blockquote>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>至此，从本地到部署已经实现。</p>
+<p>像是环境搭建之类的步骤已经完成，今后如果需要删除博客根目录重新初始化，只需要按上面介绍使用<code>hexo init</code>命令或下载已初始化的博客文件夹就可以了，不需要重新安装node.js和git。  </p>
+<p>在写博客时，先通过 <code>hexo new &#39;title&#39;</code>新建md文件，写完后，可先通过 <code>hexo s</code>打开本地服务器，在浏览器（地址栏输入localhost:4000`）中查看效果，满意后再按序执行命令部署到GitHub：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>此时的Hexo博客可能比较简（chou）约（lou），我们可以进一步地去了解使用Hexo的众多主题。比如Next、yilia、butterfly都是不错的主题，可以参考<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">知乎-有哪些好看的Hexo主题</a>找一个自己喜欢的主题，并去配（tiao）置（jiao）它。</p>
+<p>如果不熟悉markdown语法的，建议去<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">学习一下</a>，并且找到一款自己喜欢的markdown编辑器，如Mou（Mac OS X），MarkdownPad或MarkPad（Windows），Typora等。</p>
+<blockquote>
+<p>我个人使用的是Butterfly主题与Typora编辑器。</p>
+</blockquote>
 <p><strong>参考资料：</strong></p>
-<p><strong>感谢：</strong></p>
-<p><strong>文中提及开源链接：</strong></p>
+<ol>
+<li>zjufangzh：<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener"></a></li>
+</ol>
 ]]></content>
       <categories>
         <category>自建博客</category>
