@@ -1,165 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Typora使用指南</title>
-    <url>/2020/08/10/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Typora%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容概览：Typora是一款优秀的Markdown编辑器，有着实时渲染（所写即所见）的特色。本文主要从Typora的快捷键与相关常用配置上进行介绍。</p>
-<p>目的：更加优雅的Markdown书写体验</p>
-<p><strong>本文分为以下部分：</strong></p>
-<ol>
-<li>下载Typora</li>
-<li>Typora常用配置</li>
-<li>Typora快捷键</li>
-</ol>
-<h1 id="下载Typora"><a href="#下载Typora" class="headerlink" title="下载Typora"></a>下载Typora</h1><ul>
-<li><a href="https://www.typora.io/" target="_blank" rel="noopener">官网下载</a></li>
-<li><a href="https://wwa.lanzous.com/i18iCf92i6f" target="_blank" rel="noopener">蓝奏云链接</a></li>
-</ul>
-<blockquote>
-<p>从官网下载可能速度较慢，推荐使用蓝奏云链接下载。关于版本问题，蓝奏云链接不保证为Typora最新版本，但可在下载安装后，按需进行更新。</p>
-</blockquote>
-<h1 id="Typora常用配置"><a href="#Typora常用配置" class="headerlink" title="Typora常用配置"></a>Typora常用配置</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h2 id="设置图片相对路径"><a href="#设置图片相对路径" class="headerlink" title="设置图片相对路径"></a>设置图片相对路径</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>经以下步骤，可在使用Typora编写时能实时看到图片，且本地使用 <code>hexo server</code>浏览时也能看到图片。</p>
-<blockquote>
-<p>无需使用图床作为图片的保存方式，且在浏览时无需使用网络。</p>
-</blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li><p>通过 <code>Ctrl + ，</code>或菜单进入Typora的偏好设置，点击“图像”设置</p>
-</li>
-<li><p>参考图片设置为“复制到制定路径”与路径<code>./${filename}/</code>，即拷贝到与Markdown文件同名文件夹下。</p>
-<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@94be7542cd9c8bcf02f47c7c42dfb4df72d85bfb/2020/08/10/80ce17adf586db768bfaf1580f1aba53.png" alt="image-20200710184659971"></p>
-</li>
-<li><p>修改Hexo的全局配置文件<code>_config.yml</code></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 <code>hexo new &quot;博客名&quot;</code>创建一篇博客</p>
-</li>
-<li><p>通过Git命令 <code>npm install hexo-image-link --save</code>安装插件</p>
-</li>
-<li><p>使用 <code>hexo s</code> 或 <code>hexo server -debug</code>启动服务预览效果</p>
-</li>
-</ol>
-<h1 id="Typora快捷键"><a href="#Typora快捷键" class="headerlink" title="Typora快捷键"></a>Typora快捷键</h1><p>Typora快捷键熟练后可忽略语法问题</p>
-<p>[TOC]</p>
-<p>更新操作</p>
-<p>外观更改</p>
-<p><a href="https://www.antmoe.Com/" target="_blank" rel="noopener">https://www.antmoe.Com/</a></p>
-<p>:smile:</p>
-<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
-<li>新建：Ctrl + N</li>
-<li>新建窗口：Ctrl + Shift + N</li>
-<li>打开：Ctrl + O</li>
-<li>快速打开：Ctrl + P</li>
-<li>保存：Ctrl + S</li>
-<li>另存为：Ctrl + Shift + S</li>
-<li>偏好：Ctrl + ,</li>
-<li>关闭：Ctrl + W</li>
-</ul>
-<hr>
-<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
-<li>显示隐藏侧边栏：Ctrl + Shift + L</li>
-<li>源代码模式：Ctrl + /</li>
-<li>专注模式：F8</li>
-<li>打字机模式：F9</li>
-<li>切换全屏：F11</li>
-<li>实际大小：Ctrl + Shift + 0</li>
-<li>放大：Ctrl + Shift + =</li>
-<li>缩小：Ctrl + Shift + -</li>
-<li>应用内窗口切换：Ctrl + Tab</li>
-<li>打开DevTools：Shift + F12</li>
-</ul>
-<hr>
-<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><ul>
-<li>标题：Ctrl + 1/2/3/4/5</li>
-<li>段落：Ctrl + 0</li>
-<li>增大标题级别：Ctrl + =</li>
-<li>减少标题级别：Ctrl + -</li>
-<li>有序列表：Ctrl + Shift + [</li>
-<li>无序列表：Ctrl + Shift + ]</li>
-<li>任务列表：- + 空 + [ + 空 + ]  + 空</li>
-<li>增加缩进：Ctrl + ]</li>
-<li>减少缩进：Ctrl + [</li>
-</ul>
-<hr>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
-<li>目录：[ + TOC + ] + Enter</li>
-</ul>
-<blockquote>
-<p>无法在Hexo博客上显示</p>
-</blockquote>
-<ul>
-<li><p><del>软换行：Shift + Enter</del><br>硬换行：空 + 空 + Shift + Enter<br>换段：Enter  </p>
-</li>
-<li><p><code>代码</code>：Ctrl + Shift + `  </p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块：Ctrl + Shift + K</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>脚注：[^ 1 ]</p>
-</li>
-<li><p>插入链接：Ctrl + k</p>
-</li>
-<li><p>锚点：[ + 内容 + ] + ( + # + 标题名 + )</p>
-</li>
-</ul>
-<blockquote>
-<p>引用：Ctrl + Shift + q</p>
-</blockquote>
-<p>$$<br>数学符号：Ctrl + Shift + M<br>$$</p>
-<table>
-<thead>
-<tr>
-<th>制表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Ctrl + T</td>
-</tr>
-</tbody></table>
-<ul>
-<li>插入图片：直接拖动到指定位置即可或者Ctrl + Shift + i</li>
-<li>分割线：：— + 回车</li>
-</ul>
-<hr>
-<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><ul>
-<li>粘贴为纯文本：Ctrl + Shift + V</li>
-<li>加粗：Ctrl + B</li>
-<li>倾斜：Ctrl + i</li>
-<li>下划线：Ctrl + U</li>
-<li>删除线：Alt + Shift + 5</li>
-</ul>
-<hr>
-<h3 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h3><ul>
-<li><p>选中一整行：Ctrl + l</p>
-</li>
-<li><p>选中单词：Ctrl + d</p>
-</li>
-<li><p>选中相同格式的文字：Ctrl + e</p>
-</li>
-<li><p>跳转到文章开头：Ctrl + home</p>
-</li>
-<li><p>跳转到文章结尾：Ctrl + end</p>
-</li>
-<li><p>搜索：Ctrl + f</p>
-</li>
-<li><p>替换：Ctrl + h</p>
-</li>
-</ul>
-<hr>
-<p>[^ 1 ]: [ + ^ + 空 + 数字 + 空  + ]</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p><strong>参考资料：</strong></p>
-<ol>
-<li>Hexo博客写作与图片处理的经验：<a href="https://www.cnblogs.com/cocowool/p/hexo-image-link.html" target="_blank" rel="noopener">https://www.cnblogs.com/cocowool/p/hexo-image-link.html</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具使用</category>
-      </categories>
-      <tags>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用Github建Hexo博客</title>
     <url>/2020/08/08/%E8%87%AA%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E5%88%A9%E7%94%A8Github%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容概览：利用Github中的Github Pages服务，以及Hexo自带的一键部署功能，将本地搭建好的博客部署至Github，并通过对应Github仓库链接实现浏览器访问博客页面。</p>
@@ -684,8 +525,168 @@
         <category>图床</category>
       </categories>
       <tags>
-        <tag>Typora</tag>
         <tag>图床</tag>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora使用指南</title>
+    <url>/2020/08/10/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Typora%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容概览：Typora是一款优秀的Markdown编辑器，有着实时渲染（所写即所见）的特色。本文主要从Typora的快捷键与相关常用配置上进行介绍。</p>
+<p>目的：更加优雅的Markdown书写体验</p>
+<p><strong>本文分为以下部分：</strong></p>
+<ol>
+<li>下载Typora</li>
+<li>Typora常用配置</li>
+<li>Typora快捷键</li>
+</ol>
+<h1 id="下载Typora"><a href="#下载Typora" class="headerlink" title="下载Typora"></a>下载Typora</h1><ul>
+<li><a href="https://www.typora.io/" target="_blank" rel="noopener">官网下载</a></li>
+<li><a href="https://wwa.lanzous.com/i18iCf92i6f" target="_blank" rel="noopener">蓝奏云链接</a></li>
+</ul>
+<blockquote>
+<p>从官网下载可能速度较慢，推荐使用蓝奏云链接下载。关于版本问题，蓝奏云链接不保证为Typora最新版本，但可在下载安装后，按需进行更新。</p>
+</blockquote>
+<h1 id="Typora常用配置"><a href="#Typora常用配置" class="headerlink" title="Typora常用配置"></a>Typora常用配置</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h2 id="设置图片相对路径"><a href="#设置图片相对路径" class="headerlink" title="设置图片相对路径"></a>设置图片相对路径</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>经以下步骤，可在使用Typora编写时能实时看到图片，且本地使用 <code>hexo server</code>浏览时也能看到图片。</p>
+<blockquote>
+<p>无需使用图床作为图片的保存方式，且在浏览时无需使用网络。</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>通过 <code>Ctrl + ，</code>或菜单进入Typora的偏好设置，点击“图像”设置</p>
+</li>
+<li><p>参考图片设置为“复制到制定路径”与路径<code>./${filename}/</code>，即拷贝到与Markdown文件同名文件夹下。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/LeoMu0815/HexoStaticFile1@94be7542cd9c8bcf02f47c7c42dfb4df72d85bfb/2020/08/10/80ce17adf586db768bfaf1580f1aba53.png" alt="image-20200710184659971"></p>
+</li>
+<li><p>修改Hexo的全局配置文件<code>_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>hexo new &quot;博客名&quot;</code>创建一篇博客</p>
+</li>
+<li><p>通过Git命令 <code>npm install hexo-image-link --save</code>安装插件</p>
+</li>
+<li><p>使用 <code>hexo s</code> 或 <code>hexo server -debug</code>启动服务预览效果</p>
+</li>
+</ol>
+<h1 id="Typora快捷键"><a href="#Typora快捷键" class="headerlink" title="Typora快捷键"></a>Typora快捷键</h1><p>Typora快捷键熟练后可忽略语法问题</p>
+<p>[TOC]</p>
+<p>更新操作</p>
+<p>外观更改</p>
+<p><a href="https://www.antmoe.Com/" target="_blank" rel="noopener">https://www.antmoe.Com/</a></p>
+<p>:smile:</p>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
+<li>新建：Ctrl + N</li>
+<li>新建窗口：Ctrl + Shift + N</li>
+<li>打开：Ctrl + O</li>
+<li>快速打开：Ctrl + P</li>
+<li>保存：Ctrl + S</li>
+<li>另存为：Ctrl + Shift + S</li>
+<li>偏好：Ctrl + ,</li>
+<li>关闭：Ctrl + W</li>
+</ul>
+<hr>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
+<li>显示隐藏侧边栏：Ctrl + Shift + L</li>
+<li>源代码模式：Ctrl + /</li>
+<li>专注模式：F8</li>
+<li>打字机模式：F9</li>
+<li>切换全屏：F11</li>
+<li>实际大小：Ctrl + Shift + 0</li>
+<li>放大：Ctrl + Shift + =</li>
+<li>缩小：Ctrl + Shift + -</li>
+<li>应用内窗口切换：Ctrl + Tab</li>
+<li>打开DevTools：Shift + F12</li>
+</ul>
+<hr>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><ul>
+<li>标题：Ctrl + 1/2/3/4/5</li>
+<li>段落：Ctrl + 0</li>
+<li>增大标题级别：Ctrl + =</li>
+<li>减少标题级别：Ctrl + -</li>
+<li>有序列表：Ctrl + Shift + [</li>
+<li>无序列表：Ctrl + Shift + ]</li>
+<li>任务列表：- + 空 + [ + 空 + ]  + 空</li>
+<li>增加缩进：Ctrl + ]</li>
+<li>减少缩进：Ctrl + [</li>
+</ul>
+<hr>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li>目录：[ + TOC + ] + Enter</li>
+</ul>
+<blockquote>
+<p>无法在Hexo博客上显示</p>
+</blockquote>
+<ul>
+<li><p><del>软换行：Shift + Enter</del><br>硬换行：空 + 空 + Shift + Enter<br>换段：Enter  </p>
+</li>
+<li><p><code>代码</code>：Ctrl + Shift + `  </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块：Ctrl + Shift + K</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>脚注：[^ 1 ]</p>
+</li>
+<li><p>插入链接：Ctrl + k</p>
+</li>
+<li><p>锚点：[ + 内容 + ] + ( + # + 标题名 + )</p>
+</li>
+</ul>
+<blockquote>
+<p>引用：Ctrl + Shift + q</p>
+</blockquote>
+<p>$$<br>数学符号：Ctrl + Shift + M<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>制表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + T</td>
+</tr>
+</tbody></table>
+<ul>
+<li>插入图片：直接拖动到指定位置即可或者Ctrl + Shift + i</li>
+<li>分割线：：— + 回车</li>
+</ul>
+<hr>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><ul>
+<li>粘贴为纯文本：Ctrl + Shift + V</li>
+<li>加粗：Ctrl + B</li>
+<li>倾斜：Ctrl + i</li>
+<li>下划线：Ctrl + U</li>
+<li>删除线：Alt + Shift + 5</li>
+</ul>
+<hr>
+<h3 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h3><ul>
+<li><p>选中一整行：Ctrl + l</p>
+</li>
+<li><p>选中单词：Ctrl + d</p>
+</li>
+<li><p>选中相同格式的文字：Ctrl + e</p>
+</li>
+<li><p>跳转到文章开头：Ctrl + home</p>
+</li>
+<li><p>跳转到文章结尾：Ctrl + end</p>
+</li>
+<li><p>搜索：Ctrl + f</p>
+</li>
+<li><p>替换：Ctrl + h</p>
+</li>
+</ul>
+<p>[^ 1 ]: [ + ^ + 空 + 数字 + 空  + ]</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>无</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>无</p>
+<p><strong>参考资料：</strong></p>
+<ol>
+<li>Hexo博客写作与图片处理的经验：<a href="https://www.cnblogs.com/cocowool/p/hexo-image-link.html" target="_blank" rel="noopener">https://www.cnblogs.com/cocowool/p/hexo-image-link.html</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
+      <tags>
+        <tag>Typora</tag>
       </tags>
   </entry>
 </search>
